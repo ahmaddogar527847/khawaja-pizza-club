@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.env
+.env.local
+*.tsbuildinfo
+.next-trace
+cache
+public/images
+scratch
+tmp_download_burger_images.py
+tmp_test_write.txt
+pnpm-lock.yaml
