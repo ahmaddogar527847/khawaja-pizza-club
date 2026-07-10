@@ -132,13 +132,13 @@ export default function ContactSection() {
               <div className="relative rounded-xl overflow-hidden">
                 <div className="relative">
                   <iframe
-                    src={`https://maps.google.com/maps?q=29.8809,71.2934&z=16&output=embed`}
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.1806745704826!2d71.2944271919134!3d29.88094208143287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b19006975d385%3A0xae9e2d14cdd721d6!2sKhawaja%20Sweet%20and%20Pizza%20Hutt!5e0!3m2!1sen!2s!4v1783677229907!5m2!1sen!2s"
                     width="100%"
                     height="420"
                     className="rounded-xl"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Khawaja Pizza Club — Thana Chowk, Shujaabad"
+                    title="Khawaja Sweet and Pizza Hutt — Shujaabad"
                     allowFullScreen
                   />
                 </div>
