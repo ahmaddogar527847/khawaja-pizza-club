@@ -132,7 +132,7 @@ export default function ContactSection() {
               <div className="relative rounded-xl overflow-hidden">
                 <div className="relative">
                   <iframe
-                    src={`https://maps.google.com/maps?q=32.2840,72.6920&z=16&output=embed`}
+                    src={`https://maps.google.com/maps?q=29.8809421,71.2944272&z=16&output=embed`}
                     width="100%"
                     height="420"
                     className="rounded-xl"
