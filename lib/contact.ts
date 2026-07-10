@@ -61,13 +61,13 @@ export function buildWhatsAppURL(message?: string): string {
  *  contact form must keep using `CONTACT` / `CONTACT_URLS`.
  * ──────────────────────────────────────────────────────────────── */
 export const DEV_CONTACT = {
-  name: "Ahmad Dogar",
+  name: "Nexora Studio",
   // The developer's personal WhatsApp number (NOT the business line).
-  phoneDisplay: "0301-9601552",
-  phoneE164: "+923019601552",
+  phoneDisplay: "0309-6432755",
+  phoneE164: "+923096432755",
   // Digits-only, no `+`, for `wa.me` deep-links.
-  whatsappNumber: "923019601552",
-  whatsappLabel: "0301-9601552",
+  whatsappNumber: "923096432755",
+  whatsappLabel: "0309-6432755",
 } as const;
 
 export const DEV_CONTACT_URLS = {
