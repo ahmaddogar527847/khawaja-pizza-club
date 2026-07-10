@@ -121,7 +121,7 @@ export default function Footer() {
               <p className="text-[oklch(0.60_0_0)] text-[11px] uppercase tracking-[0.2em] font-medium">
                 Designed &amp; Developed By
               </p>
-              <p className="text-white text-sm font-semibold -mt-0.5">Ahmad Dogar</p>
+              <p className="text-white text-sm font-semibold -mt-0.5">{DEV_CONTACT.name}</p>
             </div>
           </div>
           {/* Developer WhatsApp — STRICTLY SEPARATE from the business contact.
