@@ -1,5 +1,5 @@
 "use client";
-import { Phone, MapPin, Clock, Code2 } from "lucide-react";
+import { Phone, MapPin, Clock } from "lucide-react";
 import { RESTAURANT } from "@/lib/data/restaurant";
 import { CONTACT, CONTACT_URLS, DEV_CONTACT, DEV_CONTACT_URLS } from "@/lib/contact";
 import { startCall } from "@/lib/utils/contact-actions";
@@ -114,8 +114,8 @@ export default function Footer() {
       <div className="border-t border-[rgba(224,184,76,0.1)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[oklch(0.78_0.17_85/0.08)] flex items-center justify-center ring-1 ring-[oklch(0.78_0.17_85/0.12)]">
-              <Code2 size={15} className="text-[oklch(0.78_0.17_85)]" />
+            <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center ring-1 ring-white/20">
+              <img src="/nexora-logo.png" alt="Nexora Studio" className="w-5 h-5 object-contain" />
             </div>
             <div>
               <p className="text-[oklch(0.60_0_0)] text-[11px] uppercase tracking-[0.2em] font-medium">
