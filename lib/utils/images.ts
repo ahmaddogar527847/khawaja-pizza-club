@@ -135,7 +135,7 @@ const DIRECT_PRODUCT_ALIASES: Record<string, string> = {
   "bbq pizza": "/images/pizzas/bar_bq.jpg",
   "creamy delight pizza": "/images/pizzas/creamy_delight.jpg",
   "fajita sicilian pizza": "/images/pizzas/fajita_sicilian.jpg",
-  "super supreme pizza": "/images/pizzas/super_supreme.jpg?product=super-supreme",
+  "super supreme pizza": "/images/pizzas/super_supreme.jpg",
   "peri peri deep dish pizza": "/images/pizzas/peri_peri_deep_dish.jpg",
   "khawaja special": "/images/pizzas/super_supreme.jpg",
   "khawaja special pizza": "/images/pizzas/super_supreme.jpg",

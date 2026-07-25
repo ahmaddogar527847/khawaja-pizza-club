@@ -104,19 +104,11 @@ export const metadata: Metadata = {
     address: false,
   },
   
-  // Viewport settings
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
-  
   // Icons and PWA
   icons: {
     icon: [
       {
-        url: "/favicon.ico",
+        url: "/favicon.png",
         sizes: "any",
       },
       {
@@ -132,7 +124,7 @@ export const metadata: Metadata = {
     ],
     shortcut: [
       {
-        url: "/favicon.ico",
+        url: "/favicon.png",
         sizes: "any",
       },
     ],
@@ -140,11 +132,6 @@ export const metadata: Metadata = {
       {
         url: "/apple-icon-180.png",
         sizes: "180x180",
-        type: "image/png",
-      },
-      {
-        url: "/apple-icon-152.png",
-        sizes: "152x152",
         type: "image/png",
       },
     ],
@@ -192,7 +179,6 @@ export const metadata: Metadata = {
 
   // Additional meta tags for SEO
   referrer: "strict-origin-when-cross-origin",
-  colorScheme: "dark",
   
   // Verification tags (to be added by user)
   verification: {
@@ -204,13 +190,12 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#000000",
-  userScalable: true,
   width: "device-width",
   initialScale: 1,
   minimumScale: 1,
   maximumScale: 5,
+  userScalable: true,
   viewportFit: "cover",
-  colorScheme: "dark",
 };
 
 export default function RootLayout({

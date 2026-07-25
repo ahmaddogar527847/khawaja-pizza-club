@@ -150,7 +150,7 @@ export const MENU_ITEMS: MenuItem[] = [
       { label: "Large",  price: 1600 },
       { label: "XL",     price: 2250 },
     ],
-    image: "/images/pizzas/super_supreme.jpg?product=super-supreme",
+    image: "/images/pizzas/super_supreme.jpg",
     badge: "Best Seller",
     isPopular: true,
     subCategory: "deep-pan",

@@ -16,6 +16,12 @@ const nextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+    localPatterns: [
+      {
+        pathname: "/images/**",
+        search: "",
+      },
+    ],
   },
   compress: true,
   poweredByHeader: false,
