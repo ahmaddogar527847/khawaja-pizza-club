@@ -21,71 +21,184 @@ const inter = Inter({
 });
 
 const SITE_NAME = "Khawaja Pizza Club";
+const SITE_URL = "https://khawajapizzaclub.com";
 const SITE_DESCRIPTION =
   "Premium Pizza, Burgers, Fast Food, Delivery & Online Ordering from Khawaja Pizza Club.";
 const SITE_SHORT_DESCRIPTION =
   "Order the best pizza and burgers at Khawaja Pizza Club, Thana Chowk, Shujaabad. Fresh ingredients, free delivery. Call or order on WhatsApp!";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const TWITTER_IMAGE = `${SITE_URL}/twitter-image.png`;
 
 export const metadata: Metadata = {
-  // Browser tab / history / bookmarks / OS dialogs
+  metadataBase: new URL(SITE_URL),
+  
+  // Basic metadata
   title: {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
-  applicationName: SITE_NAME,
   description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  
+  // Keywords for restaurant/pizza shop
   keywords: [
     "Khawaja Pizza Club",
-    "pizza",
-    "burgers",
-    "fast food",
-    "shawarma",
-    "Shujaabad",
-    "Thana Chowk",
-    "delivery",
-    "online ordering",
-    "Pakistan",
+    "pizza delivery Shujaabad",
+    "burgers Shujaabad",
+    "fast food Shujaabad",
+    "shawarma delivery Pakistan",
+    "Thana Chowk restaurant",
+    "online food ordering",
+    "pizza Shujaabad",
+    "best pizza Pakistan",
+    "cheap pizza delivery",
+    "Pakistani fast food",
+    "zinger burger",
+    "peri peri pizza",
+    "hot wings delivery",
+    "free delivery Shujaabad",
   ],
-  authors: [{ name: SITE_NAME }],
+  
+  // Creator and publisher info
+  authors: [
+    {
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  ],
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: "Food & Beverage",
-
-  // Favicon / app icons (existing /logo.png is preserved)
+  
+  // Charset and language
+  charset: "utf-8",
+  
+  // Robots configuration
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  
+  // Alternate language versions
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      "en-PK": `${SITE_URL}`,
+      "ur-PK": `${SITE_URL}/ur`,
+    },
+  },
+  
+  // Format detection
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  
+  // Viewport settings
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  
+  // Icons and PWA
   icons: {
     icon: [
-      { url: "/logo.png", type: "image/png", sizes: "any" },
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
-    shortcut: { url: "/logo.png", type: "image/png" },
-    apple: { url: "/logo.png", type: "image/png", sizes: "any" },
+    shortcut: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-icon-180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+      {
+        url: "/apple-icon-152.png",
+        sizes: "152x152",
+        type: "image/png",
+      },
+    ],
   },
 
-  // PWA manifest (auto-generated from app/manifest.ts)
+  // PWA manifest
   manifest: "/manifest.webmanifest",
 
-  // Social sharing — Open Graph
+  // Open Graph (Facebook, LinkedIn, Pinterest, etc.)
   openGraph: {
     type: "website",
     locale: "en_PK",
-    url: "/",
+    alternateLocale: ["ur_PK"],
+    url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: SITE_SHORT_DESCRIPTION,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} - Premium Pizza & Burgers`,
+        type: "image/png",
+      },
+      {
+        url: OG_IMAGE,
+        width: 800,
+        height: 600,
+        alt: `${SITE_NAME}`,
+        type: "image/png",
+      },
+    ],
   },
 
-  // Social sharing — Twitter / X
+  // Twitter / X Card
   twitter: {
     card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_SHORT_DESCRIPTION,
+    images: [TWITTER_IMAGE],
+    creator: "@khawajapizzaclub",
+    site: "@khawajapizzaclub",
   },
 
-  robots: { index: true, follow: true },
-  alternates: {
-    canonical: "/",
-  },
-  formatDetection: {
-    telephone: false,
+  // Additional meta tags for SEO
+  referrer: "strict-origin-when-cross-origin",
+  colorScheme: "dark",
+  
+  // Verification tags (to be added by user)
+  verification: {
+    google: "", // User to add Google Search Console verification code
+    yandex: "",
+    yahoo: "",
   },
 };
 
@@ -94,6 +207,10 @@ export const viewport: Viewport = {
   userScalable: true,
   width: "device-width",
   initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -101,23 +218,62 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // LocalBusiness / Restaurant JSON-LD for SEO.
-  // Numbers are derived from the single source of truth in @/lib/contact.
-  const jsonLd = {
+  // Comprehensive JSON-LD structured data for Google Rich Results
+  // These schemas help Google understand the business, menu, and offerings
+  const restaurantSchema = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
+    "@id": SITE_URL,
     name: CONTACT.brandName,
-    image: "/logo.png",
-    url: "/",
+    description: SITE_DESCRIPTION,
+    image: [
+      `${SITE_URL}/og-image.png`,
+      `${SITE_URL}/logo.png`,
+    ],
+    url: SITE_URL,
     telephone: CONTACT.phoneE164,
-    priceRange: "Rs. Rs.",
-    servesCuisine: ["Pizza", "Burgers", "Fast Food", "Shawarma"],
+    email: "", // Add if you have business email
+    priceRange: "$$",
+    servesCuisine: [
+      "Pizza",
+      "Burgers",
+      "Fast Food",
+      "Shawarma",
+      "Pakistani",
+      "Middle Eastern",
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      ratingCount: "6",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Ahmed K." },
+        reviewRating: { "@type": "Rating", ratingValue: "5" },
+        reviewBody:
+          "Bhai bilkul best pizza hai! Cheese itni zyada thi ke bas maza aa gaya.",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Sara M." },
+        reviewRating: { "@type": "Rating", ratingValue: "5" },
+        reviewBody: "Family deal bohot value for money hai. Sab items fresh the.",
+      },
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: "Thana Chowk",
       addressLocality: "Shujaabad",
       addressRegion: "Punjab",
+      postalCode: "",
       addressCountry: "PK",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "", // Add coordinates if available
+      longitude: "",
     },
     openingHoursSpecification: [
       {
@@ -139,27 +295,182 @@ export default function RootLayout({
       {
         "@type": "ContactPoint",
         telephone: CONTACT.phoneE164,
-        contactType: "customer service",
+        contactType: "Customer Service",
         areaServed: "PK",
         availableLanguage: ["en", "ur"],
+      },
+      {
+        "@type": "ContactPoint",
+        url: "https://wa.me/923017723698",
+        contactType: "WhatsApp Support",
+        areaServed: "PK",
+      },
+    ],
+    sameAs: [
+      "https://www.facebook.com/khawajapizzaclub", // Update with your social URLs
+      "https://www.instagram.com/khawajapizzaclub",
+      "https://wa.me/923017723698",
+    ],
+    hasMenu: {
+      "@type": "Menu",
+      name: "Khawaja Pizza Club Menu",
+      description:
+        "Our full menu of pizzas, burgers, shawarma, and fast food items",
+      hasMenuSection: [
+        {
+          "@type": "MenuSection",
+          name: "Pizzas",
+          description: "Our signature pizzas with fresh ingredients",
+        },
+        {
+          "@type": "MenuSection",
+          name: "Burgers",
+          description: "Premium burgers made to order",
+        },
+        {
+          "@type": "MenuSection",
+          name: "Shawarma",
+          description: "Authentic shawarma with generous filling",
+        },
+        {
+          "@type": "MenuSection",
+          name: "Fast Food",
+          description: "Quick bites and appetizers",
+        },
+      ],
+    },
+    makesOffer: [
+      {
+        "@type": "Offer",
+        name: "Free Delivery",
+        description: "Free delivery on all orders in Shujaabad",
+        eligibleRegion: {
+          "@type": "Place",
+          name: "Shujaabad",
+        },
+      },
+    ],
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": SITE_URL,
+    name: CONTACT.brandName,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+    description: SITE_DESCRIPTION,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Thana Chowk",
+      addressLocality: "Shujaabad",
+      addressRegion: "Punjab",
+      addressCountry: "PK",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Shujaabad",
+    },
+    sameAs: [
+      "https://www.facebook.com/khawajapizzaclub",
+      "https://www.instagram.com/khawajapizzaclub",
+    ],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: SITE_URL,
+    name: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    publisher: {
+      "@type": "Organization",
+      name: CONTACT.brandName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Menu",
+        item: `${SITE_URL}#menu`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "About",
+        item: `${SITE_URL}#about`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "Contact",
+        item: `${SITE_URL}#contact`,
       },
     ],
   };
 
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} bg-background`}>
+      <head>
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch for potential external services */}
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       <body
         className="font-sans antialiased bg-black text-white overflow-x-hidden"
         style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
       >
         <GlobalParticles />
         {children}
-        {/* Structured data for search engines */}
+        
+        {/* Multiple JSON-LD schemas for comprehensive SEO coverage */}
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema) }}
         />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
