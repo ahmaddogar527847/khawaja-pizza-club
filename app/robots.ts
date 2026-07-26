@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://khawajapizzaclub.com";
+  const baseUrl = "https://khawaja-pizza-club.vercel.app";
 
   return {
     rules: [
@@ -33,6 +33,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
   };
 }

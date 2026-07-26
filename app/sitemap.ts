@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://khawajapizzaclub.com";
+  const baseUrl = "https://khawaja-pizza-club.vercel.app";
 
   // All public pages in priority order
   const pages: MetadataRoute.Sitemap = [

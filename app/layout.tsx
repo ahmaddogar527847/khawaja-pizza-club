@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 const SITE_NAME = "Khawaja Pizza Club";
-const SITE_URL = "https://khawajapizzaclub.com";
+const SITE_URL = "https://khawaja-pizza-club.vercel.app";
 const SITE_DESCRIPTION =
   "Premium Pizza, Burgers, Fast Food, Delivery & Online Ordering from Khawaja Pizza Club.";
 const SITE_SHORT_DESCRIPTION =
