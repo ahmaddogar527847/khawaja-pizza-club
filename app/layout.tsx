@@ -110,7 +110,6 @@ export const metadata: Metadata = {
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
-  
   // PWA manifest
   manifest: "/manifest.webmanifest",
 
