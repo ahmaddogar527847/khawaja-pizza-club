@@ -23,9 +23,8 @@ const inter = Inter({
 const SITE_NAME = "Khawaja Pizza Club";
 const SITE_URL = "https://khawaja-pizza-club.vercel.app";
 const SITE_DESCRIPTION =
-  "Premium Pizza, Burgers, Fast Food, Delivery & Online Ordering from Khawaja Pizza Club.";
-const SITE_SHORT_DESCRIPTION =
-  "Order the best pizza and burgers at Khawaja Pizza Club, Thana Chowk, Shujaabad. Fresh ingredients, free delivery. Call or order on WhatsApp!";
+  "Khawaja Pizza Club — Shujaabad's destination for fresh pizzas, juicy burgers and delicious fast food. Explore our menu, place your order and enjoy convenient home delivery.";
+const SITE_SHORT_DESCRIPTION = SITE_DESCRIPTION;
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 const TWITTER_IMAGE = `${SITE_URL}/twitter-image.png`;
 
