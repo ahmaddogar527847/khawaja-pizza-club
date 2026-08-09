@@ -104,12 +104,12 @@ export const metadata: Metadata = {
     address: false,
   },
   
- // Icons and PWA
- icons: {
-   icon: "/logo.png",
-   shortcut: "/logo.png",
-   apple: "/logo.png",
- },
+  // Icons and PWA
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   // PWA manifest
   manifest: "/manifest.webmanifest",
 
